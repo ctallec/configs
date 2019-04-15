@@ -1,0 +1,37 @@
+[mypy]
+
+[mypy-torch.*]
+ignore_missing_imports = True
+
+[mypy-numpy.*]
+ignore_missing_imports = True
+
+[mypy-scipy.*]
+ignore_missing_imports = True
+
+[mypy-gym.*]
+ignore_missing_imports = True
+
+[mypy-tensorboardX.*]
+ignore_missing_imports = True
+
+[mypy-pyglet.*]
+ignore_missing_imports = True
+
+[mypy-cloudpickle.*]
+ignore_missing_imports = True
+
+[mypy-matplotlib.*]
+ignore_missing_imports = True
+
+[mypy-tqdm.*]
+ignore_missing_imports = True
+
+[mypy-cv2.*]
+ignore_missing_imports = True
+
+[mypy-argload.*]
+ignore_missing_imports = True
+
+[mypy-tensorflow.*]
+ignore_missing_imports = True

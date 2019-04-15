@@ -56,3 +56,12 @@ ln -sf $DIR/zsh/zfunctions $HOME/.zfunctions
 
 echo "Check that you are actually sourcing zaddons in your .zshrc"
 echo "[ -f $HOME/.zaddons ] && source $HOME/.zaddons"
+
+# linters config
+echo "Setting up linters"
+if  [[ !(-d $HOME/.config/mypy) ]]
+then
+	mkdir -p $HOME/.config/mypy
+fi
+ln -sf $DIR/linters/mypy $HOME/.config/mypy/config
+ln -sf $DIR/linters/flake8 $HOME/.config/flake8
