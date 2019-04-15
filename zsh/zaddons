@@ -1,0 +1,51 @@
+# Fixing IPython issue
+stty stop undef 
+
+# define zssh
+[ -f $HOME/.zfunctions ] && source $HOME/.zfunctions
+
+# define nvim update if configs is in the right place
+if [[ -x $HOME/configs/install.sh ]]
+then
+	nvim-update() $HOME/configs/install.sh
+fi
+
+# bash aliases
+[ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
+
+export PATH="$HOME/miniconda3/bin:$PATH"
+export XDG_RUNTIME_DIR=""
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# moar plugs with zplug anal
+source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zsh-users/zsh-history-substring-search", defer:3
+# Suggests command based on command history
+zplug "zsh-users/zsh-autosuggestions", defer:3
+bindkey -M viins '^ ' autosuggest-accept
+bindkey -M vicmd '^ ' autosuggest-accept
+bindkey -M viins '^K' forward-word 
+bindkey -M vicmd '^K' forward-word
+
+# Auto-suggestion configuration and mappings {{{
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white,bold,bg=black' 
+ZSH_AUTOSUGGEST_STRATEGY='match_prev_cmd' # the one with 'recent activity' most similar.
+bindkey '^ ' autosuggest-accept
+# }}}
+
+# Syntax highlighting for commands
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "mafredri/zsh-async", from:github
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+zplug load --verbose
+
+# FASD init
+eval "$(fasd --init auto)"
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
