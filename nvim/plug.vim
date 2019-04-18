@@ -29,20 +29,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" syntax setting / linting
-Plug 'neomake/neomake'
+" autocompletion with NCM2
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
 
-" autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'davidhalter/jedi'
-Plug 'zchee/deoplete-jedi'
-" lua related
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-lua-ftplugin'
-" C++ related
-Plug 'zchee/deoplete-clang'
-" java related
-Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
+" Buffers and paths
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+
+" Additional
+Plug 'ncm2/ncm2-ultisnips'
 
 " ultisnips
 Plug 'Sirver/ultisnips'
@@ -68,9 +64,6 @@ Plug 'junegunn/fzf.vim'
 " latex
 Plug 'lervag/vimtex'
 
-" tags
-Plug 'majutsushi/tagbar'
-
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -79,6 +72,12 @@ Plug 'thaerkh/vim-indentguides'
 
 " markdown mathjax
 Plug 'drmingdrmer/vim-syntax-markdown'
+
+" language client
+Plug 'autozimu/LanguageClient-neovim', {
+			\ 'branch': 'next',
+			\ 'do': 'bash install.sh',
+			\ }
 " }}}
 
 
@@ -86,6 +85,14 @@ call plug#end()
 " }}}
 
 " settings {{{
+" language client {{{2
+set hidden
+
+let g:LanguageClient_serverCommands = {
+			\ 'python': ['pyls'],
+			\ }
+" }}}
+
 " easymotion {{{2
 augroup easymotion_highlights
 	au!
@@ -95,97 +102,13 @@ augroup easymotion_highlights
 augroup END
 " }}}
 
-" neomake {{{2
-" launch neomake on write
-autocmd! BufWritePost * Neomake
+" NCM2 {{{2
 
-" open neomake window on error
-let g:neomake_open_list = 2
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
 
-" change neomake error and warning signs
-let g:neomake_error_sign = {
-        \ 'text': '✗',
-        \ 'texthl': 'ErrorMsg',
-        \ }
-let g:neomake_warning_sign = {
-        \   'text': '☢',
-         \   'texthl': 'NeomakeWarningSign',
-         \ }
-
-" change neomake signs color
-augroup neomake_signs
-	au!
-	autocmd ColorScheme *
-	  \ hi NeomakeErrorSign ctermfg=DarkRed ctermbg=Black |
-	  \ hi NeomakeWarningSign ctermfg=Yellow ctermbg=Black
-augroup END
-
-" change neomake highlights
-augroup neomake_highlights
-	au!
-	autocmd ColorScheme *
-	  \ hi link NeomakeError GruvboxRedBold |
-	  \ hi link NeomakeWarning GruvboxOrangeBold 
-augroup END
-
-" only enable pylint {{{
-let g:neomake_python_mypy_maker = {
-			\ 'exe': 'mypy',
-			\ }
-			" \ 'args': ['--ignore-missing-i']
-			" \}
-
-let g:neomake_python_enabled_makers = ['flake8', 'mypy']
-" }}}
-
-" only enable chktex {{{
-let g:neomake_tex_enabled_makers = []
-" }}}
-
-" deoplete {{{2
-
-" setting up
-let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-	let g:deoplete#omni#input_patterns = {}
-endif
-if !exists('g:deoplete#omni#functions')
-	let g:deoplete#omni#functions = {}
-endif
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" shows docstring in preview window
-let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#sources#jedi#ignore_errors = v:true
-
-" sources for autocompletion are, in this order, file, ultisnips and jedi
-let g:deoplete#sources = {}
-let g:deoplete#sources['python'] = ['file', 'ultisnips', 'jedi']
-
-" increases length of completion list
-let g:deoplete#max_abbr_width = 200
-
-" deoplete is slow as fuck
-let g:deoplete#sources#jedi#server_timeout = 50
-
-" C++ completion config
-let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header='/usr/lib/llvm-3.8/lib/clang'
-
-" lua completion config
-let g:lua_check_syntax = 0
-let g:lua_complete_omni = 1
-let g:lua_complete_dynamic = 0
-let g:lua_define_completion_mappings = 0
-
-let g:deoplete#omni#functions.lua = 'xolox#lua#omnifunc'
-let g:deoplete#omni#input_patterns.lua = '\w+|[^. *\t][.:]\w*'
-
-" java completion config
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-" }}}
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
 
 " fuzzy searching {{{2
 function! s:config_easyfuzzymotion(...) abort
@@ -218,7 +141,4 @@ endif
 
 " }}}
 
-" tagbar {{{2
-let g:tagbar_map_showproto="<Leader>s"
-" }}}
 " }}}

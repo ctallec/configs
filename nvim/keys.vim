@@ -52,9 +52,13 @@ inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
 " }}}
 
 " ultisnips {{{
-let g:UltiSnipsExpandTrigger="<c-l>"
+inoremap <c-k> <Plug>(ultisnips_expand)
+inoremap <silent> <expr> <c-k> ncm2_ultisnips#expand_or("\<c-k>", 'n')
+
+let g:UltiSnipsExpandTrigger = "<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
 " }}}
 
 " fuzzy search {{{
