@@ -35,3 +35,6 @@ ignore_missing_imports = True
 
 [mypy-tensorflow.*]
 ignore_missing_imports = True
+
+[mypy-visdom.*]
+ignore_missing_imports = True
