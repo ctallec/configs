@@ -65,3 +65,4 @@ then
 fi
 ln -sf $DIR/linters/mypy $HOME/.config/mypy/config
 ln -sf $DIR/linters/flake8 $HOME/.config/flake8
+ln -sf $DIR/linters/pycodestyle $HOME/.config/pycodestyle

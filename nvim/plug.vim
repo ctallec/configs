@@ -90,7 +90,12 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
 			\ 'python': ['pyls'],
+			\ 'tex': ['java', '-jar', '~/texlab/texlab.jar'],
 			\ }
+
+let g:LanguageClient_loggingLevel = 'INFO'
+let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
+let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
 " }}}
 
 " easymotion {{{2
