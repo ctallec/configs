@@ -84,6 +84,9 @@ nnoremap <Leader>mm :make<CR>
 nnoremap <Leader>mc :make clean<CR>
 " }}}
 
-" Code formatting {{{
+" Coc mappings {{{
 nnoremap <Leader>f :call CocAction("format")<CR>
+nnoremap <silent> <Leader>a  :<C-u>CocList diagnostics<cr>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <leader>rn <Plug>(coc-rename)
 " }}}
