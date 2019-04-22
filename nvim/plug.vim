@@ -39,6 +39,7 @@ Plug 'ncm2/ncm2-path'
 
 " Additional
 Plug 'ncm2/ncm2-ultisnips'
+Plug 'ncm2/float-preview'
 
 " ultisnips
 Plug 'Sirver/ultisnips'
@@ -114,6 +115,9 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
+
+" floating window
+let g:float_preview#docked = 0
 
 " fuzzy searching {{{2
 function! s:config_easyfuzzymotion(...) abort
