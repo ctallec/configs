@@ -26,6 +26,7 @@ ln -sf $DIR/nvim/general.vim $HOME/.config/nvim/general.vim
 ln -sf $DIR/nvim/keys.vim $HOME/.config/nvim/keys.vim
 ln -sf $DIR/nvim/line.vim $HOME/.config/nvim/line.vim
 ln -sf $DIR/nvim/plug.vim $HOME/.config/nvim/plug.vim
+ln -sf $DIR/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
 
 if [[ !(-d $HOME/.config/nvim/bundle/vim-snippets) ]]
 then
