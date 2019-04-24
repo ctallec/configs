@@ -53,7 +53,6 @@ inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
 
 " ultisnips {{{
 inoremap <c-k> <Plug>(ultisnips_expand)
-inoremap <silent> <expr> <c-k> ncm2_ultisnips#expand_or("\<c-k>", 'n')
 
 let g:UltiSnipsExpandTrigger = "<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
@@ -83,4 +82,11 @@ nnoremap <Leader>p :pclose<CR>
 " make {{{
 nnoremap <Leader>mm :make<CR>
 nnoremap <Leader>mc :make clean<CR>
+" }}}
+
+" Coc mappings {{{
+nnoremap <Leader>f :call CocAction("format")<CR>
+nnoremap <silent> <Leader>a  :<C-u>CocList diagnostics<cr>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <leader>rn <Plug>(coc-rename)
 " }}}

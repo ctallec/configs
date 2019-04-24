@@ -29,16 +29,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" autocompletion with NCM2
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-
-" Buffers and paths
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-
-" Additional
-Plug 'ncm2/ncm2-ultisnips'
+" Coc
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " ultisnips
 Plug 'Sirver/ultisnips'
@@ -72,12 +64,6 @@ Plug 'thaerkh/vim-indentguides'
 
 " markdown mathjax
 Plug 'drmingdrmer/vim-syntax-markdown'
-
-" language client
-Plug 'autozimu/LanguageClient-neovim', {
-			\ 'branch': 'next',
-			\ 'do': 'bash install.sh',
-			\ }
 " }}}
 
 
@@ -87,10 +73,6 @@ call plug#end()
 " settings {{{
 " language client {{{2
 set hidden
-
-let g:LanguageClient_serverCommands = {
-			\ 'python': ['pyls'],
-			\ }
 " }}}
 
 " easymotion {{{2
@@ -102,14 +84,12 @@ augroup easymotion_highlights
 augroup END
 " }}}
 
-" NCM2 {{{2
-
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANT: :help Ncm2PopupOpen for more information
+" COC {{{2
+autocmd FileType json syntax match Comment +\/\/.\+$+
 set completeopt=noinsert,menuone,noselect
-
+set updatetime=300
+" }}}
+"
 " fuzzy searching {{{2
 function! s:config_easyfuzzymotion(...) abort
 	  return extend(copy({

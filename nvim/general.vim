@@ -48,6 +48,7 @@ set title                " change the terminal's title
 " keep buffers instead of closing them. This deals with otherwise annoying
 " buffer problems.
 set hidden
+set signcolumn=auto:2
 
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
