@@ -59,9 +59,6 @@ Plug 'lervag/vimtex'
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
 
-" indentguides
-Plug 'thaerkh/vim-indentguides'
-
 " markdown mathjax
 Plug 'drmingdrmer/vim-syntax-markdown'
 " }}}
@@ -116,7 +113,7 @@ let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/bundle/UltiSnips', '~/.conf
 
 " for conceal markers
 if has('conceal')
-  set conceallevel=0 concealcursor=""
+  set conceallevel=2 concealcursor=""
 endif
 
 " }}}
