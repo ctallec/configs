@@ -42,7 +42,7 @@ endif
 set sessionoptions-=options
 
 set undolevels=1000      " allow for as many undo
-set wildignore=*.swp,*.bak,*.pyc,*.class " Do not suggest these
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.aux,*.fdb_latexmk,*.fls,*.pdf,*.bst,*.eps " Do not suggest these
 set title                " change the terminal's title
 
 " keep buffers instead of closing them. This deals with otherwise annoying
