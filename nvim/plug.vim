@@ -105,6 +105,7 @@ nnoremap <silent><expr> <Leader>/ incsearch#go(<SID>config_easyfuzzymotion())
 " vimtex {{{2
 let g:tex_flavor = 'latex'
 let g:vimtex_mappings_enabled=1
+let g:vimtex_compiler_progname = 'nvr'
 " }}}
 
 " ultisnips {{{2 

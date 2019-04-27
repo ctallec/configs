@@ -59,5 +59,17 @@ autocmd VimResized * wincmd =
 " clipboard setting
 set clipboard=unnamedplus
 set clipboard=unnamed
+let g:clipboard = {
+			\   'name': 'myClipboard',
+			\   'copy': {
+			\      '+': 'pbcopy',
+			\      '*': 'pbcopy',
+			\   },
+			\   'paste': {
+			\      '+': '+',
+			\      '*': '*',
+			\   },
+			\   'cache_enabled': 1,
+			\ }
 " }}}
 
