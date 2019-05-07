@@ -36,31 +36,14 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'Sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
-" correct indentation python
-Plug 'Vimjas/vim-python-pep8-indent'
-
-" search related
-" fuzzy searching
-Plug 'mileszs/ack.vim' 
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" search matches highlighting
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
-
-" Integration of fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'junegunn/fzf.vim'
-
 " latex
 Plug 'lervag/vimtex'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
 
-" markdown mathjax
-Plug 'drmingdrmer/vim-syntax-markdown'
+" denite
+Plug 'Shougo/denite.nvim'
 " }}}
 
 
@@ -97,9 +80,6 @@ function! s:config_easyfuzzymotion(...) abort
 	    \   'is_stay': 1
 	    \ }), get(a:, 1, {}))
 endfunction
-
-nnoremap <silent><expr> <Leader>/ incsearch#go(<SID>config_easyfuzzymotion())
-
 " }}}
 
 " vimtex {{{2
@@ -116,7 +96,17 @@ let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/bundle/UltiSnips', '~/.conf
 if has('conceal')
   set conceallevel=2 concealcursor=""
 endif
+" }}}
 
+" denite {{{2
+call denite#custom#option('default', {
+			\ 'prompt': '❯'
+			\ })
+
+nnoremap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
+nnoremap ; :Denite buffer -split=floating -winrow=1<CR>
+nnoremap <leader>ù :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
+nnoremap <leader>_ :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 " }}}
 
 " }}}

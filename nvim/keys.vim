@@ -52,8 +52,6 @@ inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
 " }}}
 
 " ultisnips {{{
-inoremap <c-k> <Plug>(ultisnips_expand)
-
 let g:UltiSnipsExpandTrigger = "<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
