@@ -68,6 +68,12 @@ augroup END
 autocmd FileType json syntax match Comment +\/\/.\+$+
 set completeopt=noinsert,menuone,noselect
 set updatetime=300
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " }}}
 "
 " fuzzy searching {{{2

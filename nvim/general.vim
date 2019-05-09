@@ -17,7 +17,7 @@ autocmd InsertEnter * :set norelativenumber | :set number
 autocmd InsertLeave * :set relativenumber | :set number 
 " }}}
 
-" folding {{{
+" folds {{{
 set foldmethod=indent
 " }}}
 
