@@ -44,6 +44,9 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " denite
 Plug 'Shougo/denite.nvim'
+
+" correct python indent
+Plug 'Vimjas/vim-python-pep8-indent'
 " }}}
 
 
