@@ -76,7 +76,7 @@ set updatetime=300
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 " }}}
 "
 " fuzzy searching {{{2
