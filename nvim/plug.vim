@@ -20,9 +20,8 @@ Plug 'morhetz/gruvbox'
 " easier motions
 Plug 'easymotion/vim-easymotion'
 
-" vim-airline -- cool status-bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" lightline (a simpler airline)
+Plug 'itchyny/lightline.vim'
 
 " git
 Plug 'tpope/vim-fugitive'

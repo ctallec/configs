@@ -86,7 +86,7 @@ nnoremap <Leader>mc :make clean<CR>
 nnoremap <Leader>f :call CocAction("format")<CR>
 nnoremap <silent> <Leader>a  :<C-u>CocList diagnostics<cr>
 nmap <Leader>ca  <Plug>(coc-codeaction)
-nmap <Leader>qf <Plug>(coc-fix-current)
-nmap <silent> gd <Plug>(coc-definition)
+nmap <Leader>cf <Plug>(coc-fix-current)
+nmap <silent> <Leader>gd <Plug>(coc-definition)
 nmap <leader>rn <Plug>(coc-rename)
 " }}}
