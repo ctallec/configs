@@ -1,0 +1,1 @@
+$pdflatex = 'lualatex --enable-write18 -synctex=1 %O %S';
