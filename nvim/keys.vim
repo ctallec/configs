@@ -90,3 +90,8 @@ nmap <Leader>cf <Plug>(coc-fix-current)
 nmap <silent> <Leader>gd <Plug>(coc-definition)
 nmap <leader>rn <Plug>(coc-rename)
 " }}}
+
+" change filetype to python (ghosttext) {{{
+nnoremap <Leader>Py :set filetype=python<CR>
+" }}}
+
