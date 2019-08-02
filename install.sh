@@ -30,7 +30,8 @@ ln -sf $DIR/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
 
 if [[ !(-d $HOME/.config/nvim/bundle/vim-snippets) ]]
 then
-	echo "No snippet directory found. Exiting."
+	echo "No snippet directory found, creating one."
+	mkdir -p $HOME/.config/nvim/bundle/vim-snippets
 fi
 
 echo "Linking UltiSnips directory..."
