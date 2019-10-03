@@ -34,10 +34,9 @@ map <Leader>h <Plug>(easymotion-bl)
 " }}}
 
 " gitgutter {{{
-nmap <Leader><Leader>hs <Plug>GitGutterStageHunk
-nmap <Leader><Leader>hp <Plug>GitGutterPreviewHunk
-nmap <Leader><Leader>hr <Plug>GitGutterUndoHunk
-nmap <Leader><Leader>hu <Plug>GitGutterUndoHunk
+nmap <Leader><Leader>hs <Plug>(GitGutterStageHunk)
+nmap <Leader><Leader>hp <Plug>(GitGutterPreviewHunk)
+nmap <Leader><Leader>hu <Plug>(GitGutterUndoHunk)
 " }}}
 
 " fugitive {{{
